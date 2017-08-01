@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="de.fluchtwege.untitled.addquestion.AddQuestionViewModel"/>
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/save_question"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:onClick="@{() -> viewModel.save()}"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large"/>
+
+        <TextView
+            android:id="@+id/enter_question"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="@dimen/margin_large"
+            android:clickable="true"
+            android:text="@string/enter_question"
+            android:textSize="@dimen/text_large"/>
+
+        <EditText
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/enter_question"
+            android:text="@={viewModel.question}"
+            android:layout_margin="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:hint="@string/question"/>
+
+        <EditText
+            android:id="@+id/answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/question"
+            android:text="@={viewModel.answer}"
+            android:layout_margin="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:hint="@string/answer"/>
+
+    </RelativeLayout>
+</layout>

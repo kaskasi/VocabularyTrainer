@@ -1,6 +1,6 @@
 package de.fluchtwege.untitled
 
-import de.fluchtwege.untitled.lesson.QuestionViewModel
+import de.fluchtwege.untitled.questions.QuestionViewModel
 import de.fluchtwege.untitled.models.Question
 import org.junit.Assert
 import org.junit.Test

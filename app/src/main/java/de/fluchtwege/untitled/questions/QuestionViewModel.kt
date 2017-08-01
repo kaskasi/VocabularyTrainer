@@ -1,4 +1,4 @@
-package de.fluchtwege.untitled.lesson
+package de.fluchtwege.untitled.questions
 
 import android.databinding.BaseObservable
 import android.databinding.Bindable

@@ -3,9 +3,11 @@ package de.fluchtwege.untitled.di
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
-import de.fluchtwege.untitled.models.Lesson
-import de.fluchtwege.untitled.vocabulary.LessonRepository
-import io.reactivex.Single
+import de.fluchtwege.untitled.Untitled
+import de.fluchtwege.untitled.questions.QuestionsController
+import de.fluchtwege.untitled.lessons.LessonsRepository
+import de.fluchtwege.untitled.lessons.LessonsController
+import de.fluchtwege.untitled.lessons.RoomLessonRepository
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -28,25 +30,26 @@ class AppModule {
                     .callbackExecutor(Executors.newCachedThreadPool())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(OkHttpClient.Builder().build())
-                    .baseUrl("https://api.themoviedb.org/3/")
+                    .baseUrl("https://api.myjson.com/bins/")
                     .build()
         }
         return retrofit!!
     }
 
-
+    @Provides
+    fun provideQuestionsController(retrofit: Retrofit): QuestionsController {
+        val questionApi = retrofit.create(QuestionsController.QuestionsApi::class.java)
+        return QuestionsController(questionApi, scheduler)
+    }
 
     @Provides
-    fun provideLessonRepository(retrofit: Retrofit): LessonRepository {
-        return object : LessonRepository {
+    fun provideLessonsController(retrofit: Retrofit): LessonsController {
+        val lessonsApi = retrofit.create(LessonsController.LessonsApi::class.java)
+        return LessonsController(lessonsApi, scheduler)
+    }
 
-            override fun getLession(position: Int): Single<Lesson> {
-                return Single.just(Lesson("", ""))
-            }
-
-            override fun getLessons(): Single<List<Lesson>> {
-                return Single.just(emptyList())
-            }
-        }
+    @Provides
+    fun provideLessonsRepository(lessonsController: LessonsController): LessonsRepository {
+        return RoomLessonRepository(lessonsController, Untitled.database)
     }
 }

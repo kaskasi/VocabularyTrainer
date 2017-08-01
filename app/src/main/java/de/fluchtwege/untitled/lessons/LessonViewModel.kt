@@ -1,4 +1,4 @@
-package de.fluchtwege.untitled.vocabulary
+package de.fluchtwege.untitled.lessons
 
 import android.databinding.BaseObservable
 import android.databinding.Bindable
