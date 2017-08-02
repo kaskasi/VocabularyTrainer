@@ -13,6 +13,8 @@ class AddQuestionViewModel(val lessonsRepository: LessonsRepository) : BaseObser
     @Bindable
     var answer : String = ""
 
-    fun save() = lessonsRepository.addQuestion(Question(question, answer))
+    fun save() : Unit {
+        lessonsRepository.addQuestion(Question(question, answer))
+    }
 
 }

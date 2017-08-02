@@ -10,10 +10,10 @@ import de.fluchtwege.untitled.persistance.UntitledDatabase
 class Untitled : Application() {
 
     lateinit var application: Untitled
+    lateinit var database: UntitledDatabase
 
     companion object {
         lateinit var appComponent: AppComponent
-        lateinit var database: UntitledDatabase
     }
 
     override fun onCreate() {
@@ -31,7 +31,7 @@ class Untitled : Application() {
     private fun initDagger() {
         appComponent = DaggerAppComponent
                 .builder()
-                .appModule(AppModule())
+                .appModule(AppModule(application))
                 .build()
     }
 }

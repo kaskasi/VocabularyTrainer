@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import de.fluchtwege.untitled.Untitled
 import de.fluchtwege.untitled.databinding.FragmentLessonsBinding
+import de.fluchtwege.untitled.persistance.RepositoryUrl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
@@ -18,6 +19,9 @@ class LessonsFragment : Fragment() {
     @Inject
     lateinit var lessonsRepository: LessonsRepository
 
+    @Inject
+    lateinit var repositoryUrl: RepositoryUrl
+
     lateinit var viewModel: LessonsViewModel
 
     var disposable: Disposable? = null
@@ -25,6 +29,7 @@ class LessonsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Untitled.appComponent.inject(this)
+        repositoryUrl.saveUrl("ocuhd")
         viewModel = LessonsViewModel(lessonsRepository)
 
     }
@@ -37,7 +42,7 @@ class LessonsFragment : Fragment() {
         binding.lessons.layoutManager = layoutManager
         binding.lessons.addItemDecoration(DividerItemDecoration(context, layoutManager.orientation))
         binding.viewModel = viewModel
-        disposable = viewModel.loadLessons(lessonAdapter::notifyDataSetChanged, AndroidSchedulers.mainThread())
+        disposable = viewModel.loadLessons(lessonAdapter::notifyDataSetChanged)
         return binding.root
     }
 

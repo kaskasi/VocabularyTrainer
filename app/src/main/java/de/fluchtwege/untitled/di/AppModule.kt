@@ -4,10 +4,11 @@ import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import de.fluchtwege.untitled.Untitled
-import de.fluchtwege.untitled.questions.QuestionsController
-import de.fluchtwege.untitled.lessons.LessonsRepository
 import de.fluchtwege.untitled.lessons.LessonsController
+import de.fluchtwege.untitled.lessons.LessonsRepository
 import de.fluchtwege.untitled.lessons.RoomLessonRepository
+import de.fluchtwege.untitled.persistance.RepositoryUrl
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -17,10 +18,12 @@ import java.util.concurrent.Executors
 
 
 @Module
-class AppModule {
+class AppModule(val untitled: Untitled) {
+
+    private val subscribeOn = Schedulers.io()
+    private val observeOn = AndroidSchedulers.mainThread()
 
     private var retrofit: Retrofit? = null
-    private val scheduler = Schedulers.io()
 
     @Provides
     fun provideRetrofit(): Retrofit {
@@ -37,19 +40,20 @@ class AppModule {
     }
 
     @Provides
-    fun provideQuestionsController(retrofit: Retrofit): QuestionsController {
-        val questionApi = retrofit.create(QuestionsController.QuestionsApi::class.java)
-        return QuestionsController(questionApi, scheduler)
+    fun provideRepositoryUrl(): RepositoryUrl {
+        return RepositoryUrl(untitled)
     }
 
     @Provides
-    fun provideLessonsController(retrofit: Retrofit): LessonsController {
+    fun provideLessonsController(retrofit: Retrofit, repositoryUrl: RepositoryUrl): LessonsController {
         val lessonsApi = retrofit.create(LessonsController.LessonsApi::class.java)
-        return LessonsController(lessonsApi, scheduler)
+        return LessonsController(lessonsApi, repositoryUrl)
     }
 
     @Provides
     fun provideLessonsRepository(lessonsController: LessonsController): LessonsRepository {
-        return RoomLessonRepository(lessonsController, Untitled.database)
+        return RoomLessonRepository(lessonsController, untitled.database, observeOn, subscribeOn)
     }
+
+
 }

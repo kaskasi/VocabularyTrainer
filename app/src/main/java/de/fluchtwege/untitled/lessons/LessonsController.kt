@@ -1,20 +1,21 @@
 package de.fluchtwege.untitled.lessons
 
 import de.fluchtwege.untitled.models.Lesson
+import de.fluchtwege.untitled.persistance.RepositoryUrl
 import io.reactivex.Flowable
-import io.reactivex.Scheduler
 import retrofit2.http.GET
+import retrofit2.http.Url
 
-class LessonsController(val lessonApi: LessonsApi, val scheduler: Scheduler) {
+class LessonsController(val lessonApi: LessonsApi, val repositoryUrl: RepositoryUrl) {
 
     fun getLessons(): Flowable<List<Lesson>> {
-        return lessonApi.getLessons().subscribeOn(scheduler)
+        return lessonApi.getLessons(repositoryUrl.getUrl())
     }
 
     interface LessonsApi {
-        @GET("ocuhd")
-        fun getLessons(): Flowable<List<Lesson>>
 
+        @GET
+        fun getLessons(@Url url: String): Flowable<List<Lesson>>
 
     }
 }

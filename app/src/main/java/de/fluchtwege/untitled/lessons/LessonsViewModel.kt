@@ -12,9 +12,8 @@ class LessonsViewModel(val lessonsRepository: LessonsRepository) : BaseObservabl
     var isLoading = false
     var lessons: List<Lesson> = emptyList()
 
-    fun loadLessons(onLessonsLoaded: () -> Unit, scheduler: Scheduler) = lessonsRepository
+    fun loadLessons(onLessonsLoaded: () -> Unit) = lessonsRepository
             .getLessons()
-            .observeOn(scheduler)
             .doOnSubscribe { setProgress(true) }
             .doOnError { setProgress(false) }
             .subscribe(

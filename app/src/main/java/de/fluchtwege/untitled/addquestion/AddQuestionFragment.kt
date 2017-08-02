@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import de.fluchtwege.untitled.Untitled
-import de.fluchtwege.untitled.databinding.FragmentAddQuestionBinding
 import de.fluchtwege.untitled.lessons.LessonsRepository
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
@@ -18,8 +17,6 @@ class AddQuestionFragment : Fragment() {
 
     lateinit var viewModel: AddQuestionViewModel
 
-
-
     private var disposable: Disposable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,12 +25,11 @@ class AddQuestionFragment : Fragment() {
         viewModel = AddQuestionViewModel(lessonsRepository)
     }
 
-
-
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding = FragmentAddQuestionBinding.inflate(inflater!!)
-
-        return binding.root
+//        val binding = FragmentAddQuestionBinding.inflate(inflater!!)
+//        binding.viewModel = viewModel
+//        return binding.root
+        return null
     }
 
 }
