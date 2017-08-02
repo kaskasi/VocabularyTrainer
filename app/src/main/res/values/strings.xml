@@ -4,4 +4,7 @@
     <string name="answer">Answer</string>
     <string name="save">Save</string>
     <string name="enter_question">Please enter:</string>
+    <string name="load_vocabulary">Load Vocabulary</string>
+    <string name="store_vocabulary">Store Vocabulary</string>
+    <string name="clear_vocabulary">Clear Repository</string>
 </resources>

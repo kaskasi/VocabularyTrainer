@@ -10,6 +10,7 @@ buildscript {
         rx_java_version = '2.1.0'
         room_version = '1.0.0-alpha5'
         gradle_plugin_version = '3.0.0-alpha9'
+        okhttp_version = "3.4.1"
     }
 
     repositories {

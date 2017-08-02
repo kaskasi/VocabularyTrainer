@@ -10,7 +10,15 @@ interface LessonsRepository {
 
     fun getLessons() : Flowable<List<Lesson>>
 
+    fun getLessonsFromRemote() : Flowable<List<Lesson>>
+
+    fun clearRepository(): Flowable<List<Lesson>>
+
     fun getLesson(name: String) : Flowable<Lesson>
 
     fun addQuestion(question: Question) : Completable
+
+    fun addLesson(lesson: Lesson) : Completable
+
+    fun storeCurrentLessons() : Flowable<List<Lesson>>
 }

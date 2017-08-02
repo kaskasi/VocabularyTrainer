@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="de.fluchtwege.untitled.addlesson.AddLessonViewModel"/>
+    </data>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/save_lesson"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large"/>
+
+        <TextView
+            android:id="@+id/enter_question"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="@dimen/margin_large"
+            android:clickable="true"
+            android:text="@string/enter_question"
+            android:textSize="@dimen/text_large"/>
+
+        <EditText
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/enter_question"
+            android:layout_margin="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:hint="@string/question"
+            android:text="@={viewModel.lessonName}"/>
+
+        <EditText
+            android:id="@+id/answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/question"
+            android:layout_margin="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:hint="@string/answer"
+            android:text="@={viewModel.description}"/>
+
+    </RelativeLayout>
+</layout>
