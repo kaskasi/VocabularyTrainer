@@ -25,7 +25,8 @@ class AddQuestionFragment : Fragment() {
         super.onCreate(savedInstanceState)
         Untitled.appComponent.inject(this)
         val lessonName = activity.intent.getStringExtra(QuestionsFragment.KEY_LESSON_NAME)
-        viewModel = AddQuestionViewModel(lessonsRepository, lessonName)
+        val questionPosition = activity.intent.getIntExtra(QuestionsFragment.KEY_QUESTION_POSITION, -1)
+        viewModel = AddQuestionViewModel(lessonsRepository, lessonName, questionPosition)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,6 +35,13 @@ class AddQuestionFragment : Fragment() {
         binding.saveQuestion.setOnClickListener { _ -> saveQuestion() }
         binding.viewModel = viewModel
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (!viewModel.isNewQuestion()) {
+            disposable = viewModel.loadQuestion()
+        }
     }
 
     private fun saveQuestion() {

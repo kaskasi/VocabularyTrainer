@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import de.fluchtwege.untitled.databinding.ItemQuestionBinding
 
 
-class QuestionsAdaper(val viewModel: QuestionsViewModel) : RecyclerView.Adapter<QuestionsAdaper.QuestionViewHolder>() {
+class QuestionsAdaper(val viewModel: QuestionsViewModel, val onEditQuestion: (Int) -> Unit, val onDeleteQuestion: (Int) -> Unit) : RecyclerView.Adapter<QuestionsAdaper.QuestionViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): QuestionViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
@@ -17,6 +17,8 @@ class QuestionsAdaper(val viewModel: QuestionsViewModel) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: QuestionViewHolder?, position: Int) {
         val questionViewModel = viewModel.getQuestionViewModel(position)
         holder?.binding?.viewModel = questionViewModel
+        holder?.binding?.editQuestion?.setOnClickListener { onEditQuestion(position) }
+        holder?.binding?.deleteQuestion?.setOnClickListener { onDeleteQuestion(position) }
     }
 
     override fun getItemCount() = viewModel.getNumberOfQuestions()

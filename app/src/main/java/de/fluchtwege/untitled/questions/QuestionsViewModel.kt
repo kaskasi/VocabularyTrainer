@@ -6,7 +6,6 @@ import android.util.Log
 import de.fluchtwege.untitled.BR
 import de.fluchtwege.untitled.lessons.LessonsRepository
 import de.fluchtwege.untitled.models.Question
-import io.reactivex.Scheduler
 
 class QuestionsViewModel(val lessonName: String, val lessonsRepository: LessonsRepository) : BaseObservable() {
 
@@ -39,7 +38,9 @@ class QuestionsViewModel(val lessonName: String, val lessonsRepository: LessonsR
     fun getNumberOfQuestions() = questions.size
 
     @Bindable
-    fun isProgressVisible()  = isLoading
+    fun isProgressVisible() = isLoading
 
-
+    fun deleteQuestion(position: Int, onDeleted: () -> Unit) =
+            lessonsRepository.deleteQuestion(lessonName, position).
+                    subscribe({ onDeleted() }, { onError(it) })
 }

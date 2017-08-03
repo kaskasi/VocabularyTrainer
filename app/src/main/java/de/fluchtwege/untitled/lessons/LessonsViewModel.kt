@@ -18,7 +18,7 @@ class LessonsViewModel(val lessonsRepository: LessonsRepository) : BaseObservabl
     fun loadVocabulary(onVocabularyLoaded: () -> Unit) = subscribeWithProgress(
             lessonsRepository.getLessonsFromRemote(), onVocabularyLoaded)
 
-    fun storeVocabulary() =  if (lessons.isNotEmpty()) subscribeWithProgress(lessonsRepository.storeCurrentLessons(), {}) else Completable.complete().subscribe()
+    fun storeVocabulary() = subscribeWithProgress(lessonsRepository.storeCurrentLessons(), {})
 
     fun clearRepository() = subscribeWithProgress(lessonsRepository.clearRepository(), {})
 
@@ -36,6 +36,8 @@ class LessonsViewModel(val lessonsRepository: LessonsRepository) : BaseObservabl
         Log.e("ERROR", "we had a problem", error)
     }
 
+    fun hasLessons() = lessons.size > 0
+
     fun getLessonViewModel(position: Int) = LessonViewModel(lessons[position])
 
     fun getNumberOfLessons() = lessons.size
@@ -49,6 +51,5 @@ class LessonsViewModel(val lessonsRepository: LessonsRepository) : BaseObservabl
     fun isProgressVisible() = isLoading
 
     fun getLessonName(position: Int) = lessons[position].name
-
 
 }

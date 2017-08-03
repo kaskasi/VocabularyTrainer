@@ -17,6 +17,9 @@ interface LessonDao {
     @Query("SELECT * FROM lesson WHERE name = :name LIMIT 1")
     fun getLesson(name: String): Flowable<Lesson>
 
+    @Query("DELETE FROM lesson WHERE name = :name")
+    fun deleteLesson(name: String): Unit
+
     @Query("DELETE FROM lesson")
     fun clearLessons(): Unit
 

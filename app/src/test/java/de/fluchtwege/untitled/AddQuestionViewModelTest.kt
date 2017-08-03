@@ -18,7 +18,7 @@ class AddQuestionViewModelTest {
     @Test
     fun `Given repository Then question is empty`() {
         val lessonsRepository = mock(LessonsRepository::class.java)
-        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName)
+        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName, questionPosition)
 
         Assert.assertEquals(viewModel.information, "")
     }
@@ -26,7 +26,7 @@ class AddQuestionViewModelTest {
     @Test
     fun `Given repository When question is entered Then question is entered value`() {
         val lessonsRepository = mock(LessonsRepository::class.java)
-        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName)
+        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName, questionPosition)
 
         viewModel.information = information
 
@@ -36,7 +36,7 @@ class AddQuestionViewModelTest {
     @Test
     fun `Given repository Then description is empty`() {
         val lessonsRepository = mock(LessonsRepository::class.java)
-        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName)
+        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName, questionPosition)
 
         Assert.assertEquals(viewModel.answer, "")
     }
@@ -44,7 +44,7 @@ class AddQuestionViewModelTest {
     @Test
     fun `Given repository When description is Entered Then lesson description is entered value`() {
         val lessonsRepository = mock(LessonsRepository::class.java)
-        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName)
+        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName, questionPosition)
 
         viewModel.answer = answer
 
@@ -55,7 +55,7 @@ class AddQuestionViewModelTest {
     fun `Given repository When question is saved Then repository saves question`() {
         val lessonsRepository = mock(LessonsRepository::class.java)
         doReturn(Completable.complete()).`when`(lessonsRepository).addQuestion(TestUtil.anyObject(), TestUtil.anyObject())
-        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName)
+        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName, questionPosition)
 
         viewModel.answer = answer
         viewModel.information = information
@@ -68,7 +68,7 @@ class AddQuestionViewModelTest {
     fun `Given repository When question is saved Then onSaved is called`() {
         val lessonsRepository = mock(LessonsRepository::class.java)
         doReturn(Completable.complete()).`when`(lessonsRepository).addQuestion(TestUtil.anyObject(), TestUtil.anyObject())
-        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName)
+        val viewModel = AddQuestionViewModel(lessonsRepository, lessonName, questionPosition)
 
         viewModel.information = information
         viewModel.answer = answer
