@@ -4,7 +4,7 @@
     <item
         android:id="@+id/add_lesson"
         android:icon="@drawable/ic_add"
-        android:title="@string/load_vocabulary"
+        android:title="@string/add_lesson"
         app:showAsAction="always"/>
     <item
         android:id="@+id/load_vocabulary"

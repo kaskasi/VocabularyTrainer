@@ -8,7 +8,6 @@ import de.fluchtwege.untitled.databinding.ItemQuestionBinding
 
 class QuestionsAdaper(val viewModel: QuestionsViewModel) : RecyclerView.Adapter<QuestionsAdaper.QuestionViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): QuestionViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
         val binding = ItemQuestionBinding.inflate(inflater, parent, false)

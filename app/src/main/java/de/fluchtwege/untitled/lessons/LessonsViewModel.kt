@@ -22,7 +22,7 @@ class LessonsViewModel(val lessonsRepository: LessonsRepository) : BaseObservabl
 
     fun clearRepository() = subscribeWithProgress(lessonsRepository.clearRepository(), {})
 
-    fun subscribeWithProgress(flowable: Flowable<List<Lesson>>, onSuccess: () -> Unit) =
+    private fun subscribeWithProgress(flowable: Flowable<List<Lesson>>, onSuccess: () -> Unit) =
             flowable.doOnSubscribe { setProgress(true) }
                     .doOnError { setProgress(false) }
                     .subscribe({

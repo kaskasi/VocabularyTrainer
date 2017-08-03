@@ -22,7 +22,6 @@
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
-            android:onClick="@{() -> viewModel.save()}"
             android:text="@string/save"
             android:textColor="@color/white"
             android:textSize="@dimen/text_large"/>
@@ -37,20 +36,20 @@
             android:textSize="@dimen/text_large"/>
 
         <EditText
-            android:id="@+id/question"
+            android:id="@+id/information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/enter_question"
-            android:text="@={viewModel.question}"
+            android:text="@={viewModel.information}"
             android:layout_margin="@dimen/margin_large"
             android:layout_marginTop="@dimen/margin_large"
-            android:hint="@string/question"/>
+            android:hint="@string/information"/>
 
         <EditText
             android:id="@+id/answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/question"
+            android:layout_below="@id/information"
             android:text="@={viewModel.answer}"
             android:layout_margin="@dimen/margin_large"
             android:layout_marginTop="@dimen/margin_large"

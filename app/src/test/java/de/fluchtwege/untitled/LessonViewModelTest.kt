@@ -1,7 +1,7 @@
 package de.fluchtwege.untitled
 
-import de.fluchtwege.untitled.models.Lesson
 import de.fluchtwege.untitled.lessons.LessonViewModel
+import de.fluchtwege.untitled.models.Lesson
 import org.junit.Assert
 import org.junit.Test
 
@@ -12,7 +12,7 @@ class LessonViewModelTest {
 
     @Test
     fun `Given lesson Then viewModel returns name`() {
-        val lesson = Lesson(name, description)
+        val lesson = Lesson(name, description, emptyList())
         val viewModel = LessonViewModel(lesson)
 
         Assert.assertEquals(viewModel.getName(), name)
@@ -20,7 +20,7 @@ class LessonViewModelTest {
 
     @Test
     fun `Given lesson Then viewModel returns description`() {
-        val lesson = Lesson(name, description)
+        val lesson = Lesson(name, description, emptyList())
         val viewModel = LessonViewModel(lesson)
 
         Assert.assertEquals(viewModel.getDescription(), description)

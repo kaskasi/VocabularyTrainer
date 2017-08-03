@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">Untitled</string>
-    <string name="question">Question</string>
+    <string name="information">Question</string>
     <string name="answer">Answer</string>
     <string name="save">Save</string>
     <string name="enter_question">Please enter:</string>
     <string name="load_vocabulary">Load Vocabulary</string>
     <string name="store_vocabulary">Store Vocabulary</string>
     <string name="clear_vocabulary">Clear Repository</string>
+    <string name="lesson_name">Lesson Name</string>
+    <string name="lesson_description">Lesson Description</string>
+    <string name="add_question">Add A Question</string>
+    <string name="add_lesson">Add A Lesson</string>
+    <string name="quiz_questions">Quiz Current Questions</string>
 </resources>

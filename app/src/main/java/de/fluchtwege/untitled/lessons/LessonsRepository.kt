@@ -16,7 +16,7 @@ interface LessonsRepository {
 
     fun getLesson(name: String) : Flowable<Lesson>
 
-    fun addQuestion(question: Question) : Completable
+    fun addQuestion(lessonName: String, question: Question) : Completable
 
     fun addLesson(lesson: Lesson) : Completable
 

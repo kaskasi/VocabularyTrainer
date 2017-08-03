@@ -1,13 +1,14 @@
 package de.fluchtwege.untitled.questions
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import de.fluchtwege.untitled.R
 import de.fluchtwege.untitled.Untitled
+import de.fluchtwege.untitled.addquestion.AddQuestionActivity
 import de.fluchtwege.untitled.databinding.FragmentQuestionsBinding
 import de.fluchtwege.untitled.lessons.LessonsRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -28,6 +29,7 @@ class QuestionsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         Untitled.appComponent.inject(this)
         val lessonName = activity.intent.getStringExtra(KEY_LESSON_NAME)
         viewModel = QuestionsViewModel(lessonName, lessonsRepository)
@@ -43,8 +45,31 @@ class QuestionsFragment : Fragment() {
         binding.questions.layoutManager = layoutManager
         binding.questions.addItemDecoration(DividerItemDecoration(context, layoutManager.orientation))
         binding.viewModel = viewModel
-        disposable = viewModel.loadQuestions(questionsAdapter::notifyDataSetChanged, AndroidSchedulers.mainThread())
+        disposable = viewModel.loadQuestions(questionsAdapter::notifyDataSetChanged)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_questions, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId) {
+            R.id.add_question -> addQuestion()
+            R.id.quiz_questions -> startQuiz()
+        }
+        return true
+    }
+
+    private fun addQuestion() {
+        val openAddQuestion = Intent(context, AddQuestionActivity::class.java)
+        openAddQuestion.putExtra(KEY_LESSON_NAME, viewModel.lessonName)
+        startActivity(openAddQuestion)
+    }
+
+    private fun startQuiz() {
+
+
     }
 
     override fun onDestroy() {
