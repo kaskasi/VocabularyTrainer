@@ -42,6 +42,8 @@
             android:layout_below="@id/enter_question"
             android:text="@={viewModel.information}"
             android:layout_margin="@dimen/margin_large"
+            android:lines="1"
+            android:imeOptions="actionNext"
             android:layout_marginTop="@dimen/margin_large"
             android:hint="@string/information"/>
 
@@ -52,7 +54,8 @@
             android:layout_below="@id/information"
             android:text="@={viewModel.answer}"
             android:layout_margin="@dimen/margin_large"
-            android:layout_marginTop="@dimen/margin_large"
+            android:lines="1"
+            android:imeOptions="actionDone"
             android:hint="@string/answer"/>
 
     </RelativeLayout>

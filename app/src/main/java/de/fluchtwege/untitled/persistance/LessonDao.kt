@@ -22,4 +22,7 @@ interface LessonDao {
 
     @Insert
     fun insert(lesson: Lesson): Unit
+
+    @Update
+    fun update(lesson: Lesson): Unit
 }
