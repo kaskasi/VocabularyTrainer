@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="de.fluchtwege.untitled.quiz.QuizViewModel"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:clickable="true"
+            android:enabled="@{viewModel.nextButtonEnabled}"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="@{viewModel.nextButtonText}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large"
+            tools:text="@string/next"/>
+
+        <TextView
+            android:id="@+id/information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/margin_large"
+            android:textColor="@color/black"
+            android:text="@{viewModel.information}"
+            android:textSize="96dp"
+            tools:text="本"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/information"
+            android:layout_margin="@dimen/margin_large"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:text="@={viewModel.enteredAnswer}"
+            app:textColorResource="@{viewModel.answerColor}"
+            tools:text="Book"/>
+
+    </RelativeLayout>
+</layout>

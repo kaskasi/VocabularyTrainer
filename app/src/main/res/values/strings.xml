@@ -12,4 +12,6 @@
     <string name="add_question">Add A Question</string>
     <string name="add_lesson">Add A Lesson</string>
     <string name="quiz_questions">Quiz Current Questions</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
 </resources>

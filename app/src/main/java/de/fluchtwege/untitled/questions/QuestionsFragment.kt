@@ -11,6 +11,7 @@ import de.fluchtwege.untitled.Untitled
 import de.fluchtwege.untitled.addquestion.AddQuestionActivity
 import de.fluchtwege.untitled.databinding.FragmentQuestionsBinding
 import de.fluchtwege.untitled.lessons.LessonsRepository
+import de.fluchtwege.untitled.quiz.QuizActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
@@ -68,8 +69,9 @@ class QuestionsFragment : Fragment() {
     }
 
     private fun startQuiz() {
-
-
+        val openQuiz = Intent(context, QuizActivity::class.java)
+        openQuiz.putExtra(KEY_LESSON_NAME, viewModel.lessonName)
+        startActivity(openQuiz)
     }
 
     override fun onDestroy() {
