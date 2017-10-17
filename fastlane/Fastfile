@@ -21,6 +21,7 @@ default_platform :android
 
     desc "New commit on master"
     lane :develop do
+      skip_docs
       increment_version_code(
               gradle_file_path: "app/build.gradle",
               #ext_constant_name: "test"
