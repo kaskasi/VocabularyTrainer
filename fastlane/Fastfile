@@ -27,6 +27,9 @@ default_platform :android
               #app_folder_name:"app"
       )
       gradle(task: "clean assemble test connectedAndroidTest")
+      commit_android_version_bump(
+          gradle_file_folder:"app"
+        )
     end
 
     desc "Deploy a new alpha version to Google Play"
