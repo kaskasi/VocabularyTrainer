@@ -19,7 +19,7 @@ default_platform :android
       # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
     end
 
-    dec "New commit on master"
+    desc "New commit on master"
     lane :develop do
       increment_version_code(
               gradle_file_path: "app/build.gradle",
