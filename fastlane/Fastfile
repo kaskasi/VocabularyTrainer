@@ -31,6 +31,7 @@ default_platform :android
       commit_android_version_bump(
           gradle_file_folder:"app"
         )
+      push_to_git_remote
     end
 
     desc "Deploy a new alpha version to Google Play"
