@@ -14,5 +14,6 @@
 .idea/vcs.xml
 *.jks
 .idea
+./idea/inspectionProfiles/Project_Default.xml
 Google Play Android Developer-86b309458faa.json
 keystore.properties
