@@ -12,3 +12,7 @@
 .idea/modules.xml
 .idea/runConfigurations.xml
 .idea/vcs.xml
+*.jks
+.idea
+Google Play Android Developer-86b309458faa.json
+keystore.properties

@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="de.fluchtwege.untitled.lessons.LessonsViewModel"/>
+            type="de.fluchtwege.vocabulary.lessons.LessonsViewModel"/>
     </data>
 
     <FrameLayout

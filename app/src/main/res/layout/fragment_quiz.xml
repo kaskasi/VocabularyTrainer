@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="de.fluchtwege.untitled.quiz.QuizViewModel"/>
+            type="de.fluchtwege.vocabulary.quiz.QuizViewModel"/>
 
     </data>
 

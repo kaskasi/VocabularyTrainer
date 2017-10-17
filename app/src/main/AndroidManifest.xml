@@ -1,18 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="de.fluchtwege.untitled">
-
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+          package="de.fluchtwege.vocabulary">
 
     <application
-        android:name=".Untitled"
+        android:name="de.fluchtwege.vocabulary.Vocabulary"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".lessons.LessonsActivity">
+        <activity android:name="de.fluchtwege.vocabulary.lessons.LessonsActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
 
@@ -21,10 +18,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".questions.QuestionsActivity"/>
-        <activity android:name=".addlesson.AddLessonActivity"/>
-        <activity android:name=".addquestion.AddQuestionActivity"/>
-        <activity android:name=".quiz.QuizActivity"/>
+        <activity android:name="de.fluchtwege.vocabulary.questions.QuestionsActivity"/>
+        <activity android:name="de.fluchtwege.vocabulary.addlesson.AddLessonActivity"/>
+        <activity android:name="de.fluchtwege.vocabulary.addquestion.AddQuestionActivity"/>
+        <activity android:name="de.fluchtwege.vocabulary.quiz.QuizActivity"/>
 
     </application>
 </manifest>

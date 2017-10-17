@@ -1,0 +1,62 @@
+# Customise this file, documentation can be found here:
+# https://docs.fastlane.tools/actions/
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+update_fastlane
+
+fastlane_version "2.61.0"
+
+default_platform :android
+
+  platform :android do
+
+    before_all do
+      # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    end
+
+    dec "New commit on master"
+    lane :develop do
+      increment_version_code(
+              gradle_file_path: "app/build.gradle",
+              #ext_constant_name: "test"
+              #app_folder_name:"app"
+      )
+      gradle(task: "clean assemble test connectedAndroidTest")
+    end
+
+    desc "Deploy a new alpha version to Google Play"
+    lane :alpha do
+       supply(
+           track: 'alpha',
+           apk_paths: "app/build/outputs/apk/release/app-release.apk"
+       )
+    end
+
+    desc "Release a new version"
+    lane :release do
+     screengrab(
+           clear_previous_screenshots: true,
+           app_apk_path: "app/build/outputs/apk/debug/app-debug.apk",
+           tests_apk_path: "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+         )
+
+         supply(
+             track: 'production',
+             apk_paths: "app/build/outputs/apk/release/app-release.apk"
+         )
+    end
+
+
+    after_all do |lane|
+
+    end
+
+    error do |lane, exception|
+
+    end
+end

@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="de.fluchtwege.untitled.lessons.LessonViewModel"/>
+            type="de.fluchtwege.vocabulary.lessons.LessonViewModel"/>
     </data>
 
     <LinearLayout

@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="de.fluchtwege.untitled.questions.QuestionsViewModel"/>
+            type="de.fluchtwege.vocabulary.questions.QuestionsViewModel"/>
     </data>
 
     <FrameLayout

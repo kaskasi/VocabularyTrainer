@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="de.fluchtwege.untitled.questions.QuestionViewModel"/>
+            type="de.fluchtwege.vocabulary.questions.QuestionViewModel"/>
     </data>
 
     <com.daimajia.swipe.SwipeLayout

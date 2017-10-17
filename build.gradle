@@ -2,14 +2,14 @@
 
 buildscript {
     ext {
-        appcompat_version = '26.0.0-beta2'
+        appcompat_version = '26.1.0'
         kotlin_version = '1.1.3-2'
         dagger_version = '2.0'
         retrofit_version = '2.2.0'
         rx_android_version = '2.0.1'
         rx_java_version = '2.1.0'
-        room_version = '1.0.0-alpha5'
-        gradle_plugin_version = '3.0.0-alpha9'
+        room_version = '1.0.0-beta2'
+        gradle_plugin_version = '3.0.0-rc1'
         okhttp_version = "3.4.1"
     }
 
