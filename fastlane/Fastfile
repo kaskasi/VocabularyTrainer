@@ -33,6 +33,7 @@ default_platform :android
       commit_android_version_bump(
           gradle_file_folder:"app"
         )
+      sh("this will break")
       push_to_git_remote
       sh("avdmanager delete avd -n headless")
     end
@@ -65,6 +66,6 @@ default_platform :android
     end
 
     error do |lane, exception|
-      git status
+      sh("git reset --hard origin/master")
     end
 end
