@@ -27,14 +27,14 @@ default_platform :android
               #ext_constant_name: "test"
               #app_folder_name:"app"
       )
-      sh("echo no | android create avd --force -n headless -k \'system-images;android-23;google_apis;x86\'")
+      sh("echo no | avdmanager create avd --force -n headless -k \'system-images;android-23;google_apis;x86\'")
       sh("emulator -avd headless -no-skin -no-audio -no-window > /dev/null 2>&1 &")
       gradle(task: "clean assemble test connectedAndroidTest")
       commit_android_version_bump(
           gradle_file_folder:"app"
         )
       push_to_git_remote
-      sh("android delete avd --force -n headless")
+      sh("avdmanager delete avd -n headless")
     end
 
     desc "Deploy a new alpha version to Google Play"
