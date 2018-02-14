@@ -5,54 +5,29 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="9.96645">
+      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="7.332037">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Verifying fastlane version" time="0.006756">
+      <testcase classname="fastlane.lanes" name="1: Verifying fastlane version" time="0.006574">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: default_platform" time="0.005321">
+      <testcase classname="fastlane.lanes" name="2: default_platform" time="0.005796">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: increment_version_code" time="0.010791">
+      <testcase classname="fastlane.lanes" name="3: increment_version_code" time="0.015532">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: echo no | android create avd --force -n headless -k 'system-images;android-23;google_apis;x86'" time="5.852025">
+      <testcase classname="fastlane.lanes" name="4: echo no | avdmanager create avd --force -n headless -k 'system-images;android-23;google_apis;x86'" time="0.034123">
         
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="5: emulator -avd headless -no-skin -no-audio -no-window &gt; /dev/null 2&gt;&amp;1 &amp;" time="0.022796">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="6: gradle" time="80.359846">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="7: commit_android_version_bump" time="0.178039">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="8: push_to_git_remote" time="4.40597">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="9: android delete avd --force -n headless" time="0.478663">
-        
-          <failure message="/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/fast_file.rb:185:in `sh'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/fast_file.rb:180:in `sh'&#10;Fastfile:37:in `block (2 levels) in parsing_binding'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/lane_manager.rb:56:in `cruise_lane'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/commands_generator.rb:108:in `block (2 levels) in run'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.5/lib/commander/command.rb:178:in `call'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.5/lib/commander/command.rb:178:in `call'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.5/lib/commander/command.rb:153:in `run'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.5/lib/commander/runner.rb:476:in `run_active_command'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:75:in `run!'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.5/lib/commander/delegates.rb:15:in `run!'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/commands_generator.rb:337:in `run'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/commands_generator.rb:42:in `start'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/cli_tools_distributor.rb:98:in `take_off'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/bin/fastlane:20:in `&lt;top (required)&gt;'&#10;/Users/kaskasi/.fastlane/bin/bundle/bin/fastlane:22:in `load'&#10;/Users/kaskasi/.fastlane/bin/bundle/bin/fastlane:22:in `&lt;main&gt;'&#10;&#10;Exit status of command 'android delete avd --force -n headless' was 1 instead of 0.&#10;*************************************************************************&#10;The &quot;android&quot; command is deprecated.&#10;For manual SDK, AVD, and project management, please use Android Studio.&#10;For command-line tools, use tools/bin/sdkmanager and tools/bin/avdmanager&#10;*************************************************************************&#10;Running /Applications/Android/tools/bin/avdmanager delete avd --force -n headless&#10;&#10;Error: Flag '--force' is not valid for 'delete avd'.&#10;&#10;Usage:&#10;      avdmanager [global options] delete avd [action options]&#10;      Global options:&#10;  -s --silent     : Silent mode, shows errors only.&#10;  -v --verbose    : Verbose mode, shows errors, warnings and all messages.&#10;     --clear-cache: Clear the SDK Manager repository manifest cache.&#10;  -h --help       : Help on a specific command.&#10;&#10;Action &quot;delete avd&quot;:&#10;  Deletes an Android Virtual Device.&#10;Options:&#10;  -n --name    : Name of the AVD to delete. [required]&#10;" />
+          <failure message="/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/fast_file.rb:185:in `sh'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/fast_file.rb:180:in `sh'&#10;Fastfile:30:in `block (2 levels) in parsing_binding'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/lane_manager.rb:56:in `cruise_lane'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/commands_generator.rb:108:in `block (2 levels) in run'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.5/lib/commander/command.rb:178:in `call'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.5/lib/commander/command.rb:178:in `call'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.5/lib/commander/command.rb:153:in `run'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.5/lib/commander/runner.rb:476:in `run_active_command'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:75:in `run!'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.5/lib/commander/delegates.rb:15:in `run!'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/commands_generator.rb:337:in `run'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/commands_generator.rb:42:in `start'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/fastlane/lib/fastlane/cli_tools_distributor.rb:98:in `take_off'&#10;/Users/kaskasi/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.81.0/bin/fastlane:20:in `&lt;top (required)&gt;'&#10;/Users/kaskasi/.fastlane/bin/bundle/bin/fastlane:22:in `load'&#10;/Users/kaskasi/.fastlane/bin/bundle/bin/fastlane:22:in `&lt;main&gt;'&#10;&#10;Exit status of command 'echo no | avdmanager create avd --force -n headless -k 'system-images;android-23;google_apis;x86'' was 127 instead of 0.&#10;sh: avdmanager: command not found&#10;" />
         
       </testcase>
     
