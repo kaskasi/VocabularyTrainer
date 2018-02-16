@@ -29,7 +29,7 @@ default_platform :android
       )
       sh("echo no | avdmanager create avd --force -n headless -k \'system-images;android-23;google_apis;x86\'")
       sh("emulator -avd headless -no-skin -no-audio -no-window > /dev/null 2>&1 &")
-      gradle(task: "clean assembleRelease testRelease connectedAndroidTestRelease")
+      gradle(task: "clean assembleRelease test connectedAndroidTest")
       commit_android_version_bump(gradle_file_folder:"app")
       push_to_git_remote
       sh("avdmanager delete avd -n headless")
