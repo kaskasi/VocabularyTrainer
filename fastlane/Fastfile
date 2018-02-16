@@ -29,7 +29,7 @@ default_platform :android
       )
       sh("echo no | avdmanager create avd --force -n headless -k \'system-images;android-23;google_apis;x86\'")
       sh("emulator -avd headless -no-skin -no-audio -no-window > /dev/null 2>&1 &")
-      gradle(task: "clean assemble test connectedAndroidTest")
+      gradle(task: "clean assembleRelease testRelease connectedAndroidTestRelease")
       commit_android_version_bump(gradle_file_folder:"app")
       push_to_git_remote
       sh("avdmanager delete avd -n headless")
@@ -47,8 +47,8 @@ default_platform :android
     lane :release do
      screengrab(
            clear_previous_screenshots: true,
-           app_apk_path: "app/build/outputs/apk/debug/app-debug.apk",
-           tests_apk_path: "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+           app_apk_path: "app/build/outputs/apk/debug/app-release.apk",
+           tests_apk_path: "app/build/outputs/apk/androidTest/debug/app-release-androidTest.apk"
          )
 
          supply(
