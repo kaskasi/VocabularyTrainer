@@ -16,7 +16,8 @@ default_platform :android
   platform :android do
 
     before_all do
-      # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+       sh("echo no | avdmanager create avd --force -n headless -k \'system-images;android-23;google_apis;x86\'")
+       sh("emulator -avd headless -no-skin -no-audio -no-window > /dev/null 2>&1 &")
     end
 
     desc "New commit on master"
@@ -27,12 +28,9 @@ default_platform :android
               #ext_constant_name: "test"
               #app_folder_name:"app"
       )
-      sh("echo no | avdmanager create avd --force -n headless -k \'system-images;android-23;google_apis;x86\'")
-      sh("emulator -avd headless -no-skin -no-audio -no-window > /dev/null 2>&1 &")
       gradle(task: "clean assembleRelease test connectedAndroidTest")
       commit_android_version_bump(gradle_file_folder:"app")
       push_to_git_remote
-      sh("avdmanager delete avd -n headless")
     end
 
     desc "Deploy a new alpha version to Google Play"
@@ -47,8 +45,8 @@ default_platform :android
     lane :release do
      screengrab(
            clear_previous_screenshots: true,
-           app_apk_path: "app/build/outputs/apk/debug/app-release.apk",
-           tests_apk_path: "app/build/outputs/apk/androidTest/debug/app-release-androidTest.apk"
+           app_apk_path: "app/build/outputs/apk/debug/app-debug.apk",
+           tests_apk_path: "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
          )
 
          supply(
@@ -59,7 +57,7 @@ default_platform :android
 
 
     after_all do |lane|
-
+       sh("avdmanager delete avd -n headless")
     end
 
     error do |lane, exception|
