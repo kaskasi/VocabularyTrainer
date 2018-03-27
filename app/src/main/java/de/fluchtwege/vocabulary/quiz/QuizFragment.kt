@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import de.fluchtwege.vocabulary.Vocabulary
+import de.fluchtwege.vocabulary.analytics.Events
+import de.fluchtwege.vocabulary.configuration.Configuration
 import de.fluchtwege.vocabulary.databinding.FragmentQuizBinding
 import de.fluchtwege.vocabulary.lessons.LessonsRepository
 import de.fluchtwege.vocabulary.questions.QuestionsFragment
@@ -17,6 +19,12 @@ class QuizFragment: Fragment() {
     @Inject
     lateinit var lessonsRepository: LessonsRepository
 
+    @Inject
+    lateinit var events: Events
+
+    @Inject
+    lateinit var configuration: Configuration
+
     lateinit var viewModel: QuizViewModel
 
     var disposable: Disposable? = null
@@ -25,7 +33,7 @@ class QuizFragment: Fragment() {
         super.onCreate(savedInstanceState)
         Vocabulary.appComponent.inject(this)
         val lessonName = activity.intent.getStringExtra(QuestionsFragment.KEY_LESSON_NAME)
-        viewModel = QuizViewModel(lessonName, lessonsRepository)
+        viewModel = QuizViewModel(lessonName, lessonsRepository, events, configuration)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -70,6 +70,10 @@ dependencies {
 
     implementation "com.daimajia.swipelayout:library:1.2.0@aar"
 
+    implementation "com.google.firebase:firebase-core:$firebase_version"
+    implementation "com.google.firebase:firebase-config:$firebase_version"
+
+
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
 
@@ -84,4 +88,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'tools.fastlane:screengrab:1.0.0'
+
+
 }
+
+apply plugin: 'com.google.gms.google-services'

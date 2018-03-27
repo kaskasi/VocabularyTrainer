@@ -1,6 +1,7 @@
 package de.fluchtwege.vocabulary.lessons
 
 import android.content.Intent
+import de.fluchtwege.vocabulary.configuration.Configuration
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
@@ -22,6 +23,9 @@ class LessonsFragment : Fragment() {
     @Inject
     lateinit var repositoryId: RepositoryId
 
+    @Inject
+    lateinit var configuration: Configuration
+
     lateinit var viewModel: LessonsViewModel
     lateinit var lessonAdapter: LessonAdapter
 
@@ -32,7 +36,7 @@ class LessonsFragment : Fragment() {
         setHasOptionsMenu(true)
         Vocabulary.appComponent.inject(this)
         repositoryId.saveId("ocuhd")
-        viewModel = LessonsViewModel(lessonsRepository)
+        viewModel = LessonsViewModel(lessonsRepository, configuration)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {

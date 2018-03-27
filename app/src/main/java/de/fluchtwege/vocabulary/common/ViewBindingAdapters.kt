@@ -20,3 +20,10 @@ fun setVisible(view: View, visible: Boolean) {
 fun setTextColorResource(textView: TextView, @ColorRes color: Int) {
     textView.setTextColor(ContextCompat.getColor(textView.context, color))
 }
+
+@BindingAdapter("backgroundColor")
+fun setBackgroundColor(textView: View, @ColorRes color: Int) {
+
+    val colorInt = ContextCompat.getColor(textView.context, color)
+    textView.setBackgroundColor(colorInt)
+}

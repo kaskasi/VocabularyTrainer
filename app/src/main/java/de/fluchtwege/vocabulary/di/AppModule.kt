@@ -4,6 +4,10 @@ import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import de.fluchtwege.vocabulary.Vocabulary
+import de.fluchtwege.vocabulary.analytics.Events
+import de.fluchtwege.vocabulary.analytics.FirebaseEvents
+import de.fluchtwege.vocabulary.configuration.Configuration
+import de.fluchtwege.vocabulary.configuration.FirebaseConfiguration
 import de.fluchtwege.vocabulary.lessons.LessonsController
 import de.fluchtwege.vocabulary.lessons.LessonsRepository
 import de.fluchtwege.vocabulary.lessons.RoomLessonsRepository
@@ -52,6 +56,16 @@ class AppModule(val vocabulary: Vocabulary) {
     @Provides
     fun provideRepositoryUrl(): RepositoryId {
         return RepositoryId(vocabulary)
+    }
+
+    @Provides
+    fun provideConfiguration(): Configuration {
+        return FirebaseConfiguration()
+    }
+
+    @Provides
+    fun provideEvents(): Events {
+        return FirebaseEvents(vocabulary)
     }
 
     @Provides

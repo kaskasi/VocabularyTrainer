@@ -4,10 +4,12 @@ import android.databinding.BaseObservable
 import android.databinding.Bindable
 import android.util.Log
 import de.fluchtwege.vocabulary.BR
+import de.fluchtwege.vocabulary.configuration.Configuration
 import de.fluchtwege.vocabulary.models.Lesson
 import io.reactivex.Flowable
 
-class LessonsViewModel(val lessonsRepository: LessonsRepository) : BaseObservable() {
+class LessonsViewModel(private val lessonsRepository: LessonsRepository,
+                       private val configuration: Configuration) : BaseObservable() {
 
     var isLoading = false
     var lessons: List<Lesson> = emptyList()
@@ -37,7 +39,7 @@ class LessonsViewModel(val lessonsRepository: LessonsRepository) : BaseObservabl
 
     fun hasLessons() = lessons.size > 0
 
-    fun getLessonViewModel(position: Int) = LessonViewModel(lessons[position])
+    fun getLessonViewModel(position: Int) = LessonViewModel(lessons[position], configuration)
 
     fun getNumberOfLessons() = lessons.size
 

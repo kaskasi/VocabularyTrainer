@@ -13,7 +13,7 @@ class LessonViewModelTest {
     @Test
     fun `Given lesson Then viewModel returns name`() {
         val lesson = Lesson(name, description, emptyList())
-        val viewModel = LessonViewModel(lesson)
+        val viewModel = LessonViewModel(lesson, configuration)
 
         Assert.assertEquals(viewModel.getName(), name)
     }
@@ -21,7 +21,7 @@ class LessonViewModelTest {
     @Test
     fun `Given lesson Then viewModel returns description`() {
         val lesson = Lesson(name, description, emptyList())
-        val viewModel = LessonViewModel(lesson)
+        val viewModel = LessonViewModel(lesson, configuration)
 
         Assert.assertEquals(viewModel.getDescription(), description)
     }

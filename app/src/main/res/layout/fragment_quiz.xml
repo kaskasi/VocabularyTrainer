@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/colorPrimary"
+            app:backgroundColor="@{viewModel.nextButtonColor}"
             android:clickable="true"
             android:enabled="@{viewModel.nextButtonEnabled}"
             android:focusable="true"
